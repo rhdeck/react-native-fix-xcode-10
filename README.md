@@ -6,11 +6,12 @@ Fixes issues with compiling React Native 0.55.4 apps on XCode 10
 
 ```
 yarn add rhdeck/react-native-fix-xcode-10
-react-native run-ios --device
+open ios/*.xcodeproj
+# run the project
 # FAIL!
 react-native fix-xcode
-react-native run-ios --device
+# run the project again
 # SUCCESS!
 ```
 
-Here's hoping this is only necessary for a few days or weeks.
+Here's hoping this is only necessary for a few days.
