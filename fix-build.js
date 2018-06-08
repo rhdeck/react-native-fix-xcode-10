@@ -18,6 +18,18 @@ if (!fs.existsSync(glogpath)) {
   );
   process.exit();
 }
+process.chdir(glogpath);
+cp.execSync(
+  Path.join(
+    cwd,
+    "node_modules",
+    "react-native",
+    "scripts",
+    "ios-configure-glog.sh"
+  ),
+  { stdio: "inherit" }
+);
+
 const wspath = Path.join(
   cwd,
   "node_modules",
@@ -46,15 +58,3 @@ if (results.length > 0) {
   );
   process.exit();
 }
-
-process.chdir(glogpath);
-cp.execSync(
-  Path.join(
-    cwd,
-    "node_modules",
-    "react-native",
-    "scripts",
-    "ios-configure-glog.sh"
-  ),
-  { stdio: "inherit" }
-);
