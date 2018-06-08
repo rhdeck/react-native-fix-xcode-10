@@ -1,0 +1,32 @@
+{
+  "name": "react-native-fix-xcode-10",
+  "version": "1.0.0",
+  "description": "Quick tool to fix xcode 10 Beta 1 builds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhdeck/react-native-fix-xcode-10.git"
+  },
+  "keywords": [
+    "react-native",
+    "xcode"
+  ],
+  "author": "Ray Deck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhdeck/react-native-fix-xcode-10/issues"
+  },
+  "homepage": "https://github.com/rhdeck/react-native-fix-xcode-10#readme",
+  "dependencies": {
+    "glob": "^7.1.2"
+  },
+  "rnpm": {
+    "plugin": "plugin.js"
+  },
+  "bin": {
+    "react-native-fix-xcode-10": "./fix-build.js"
+  }
+}
