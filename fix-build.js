@@ -5,7 +5,6 @@ const Path = require("path");
 const glob = require("glob");
 //Build glog
 const cwd = process.cwd();
-console.log("Starting from directory", cwd);
 const glogpath = Path.join(
   cwd,
   "node_modules",
@@ -13,13 +12,23 @@ const glogpath = Path.join(
   "third-party",
   "glog-0.3.4"
 );
-console.log("This is my glogpath", glogpath);
 if (!fs.existsSync(glogpath)) {
   console.log(
     "This can only fix after you have compiled at least once. Try react-native run-ios or the like, let it fail,  then run this command again."
   );
   process.exit();
 }
+const results = glob.sync(g);
+
+if (results.length > 0) {
+  fs.copyFileSync(results[0], Path.join(wspath, "libfishhook.a"));
+} else {
+  console.log(
+    "You probably have to build your project again before this will work. \nMissing fishhook file in deriveddata"
+  );
+  process.exit();
+}
+
 process.chdir(glogpath);
 cp.execSync(
   Path.join(
@@ -49,9 +58,3 @@ const g = Path.join(
   "**",
   "libfishhook.a"
 );
-const results = glob.sync(g);
-
-console.log("I have globbed and here is what I found", g, results);
-if (results.length > 0) {
-  fs.copyFileSync(results[0], Path.join(wspath, "libfishhook.a"));
-}
