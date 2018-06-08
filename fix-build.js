@@ -18,6 +18,24 @@ if (!fs.existsSync(glogpath)) {
   );
   process.exit();
 }
+const wspath = Path.join(
+  cwd,
+  "node_modules",
+  "react-native",
+  "Libraries",
+  "Websocket"
+);
+const g = Path.join(
+  process.env["HOME"],
+  "Library",
+  "Developer",
+  "Xcode",
+  "DerivedData",
+  Path.basename(cwd) + "*",
+  "**",
+  "libfishhook.a"
+);
+//Now that's done, let's go get the websocket
 const results = glob.sync(g);
 
 if (results.length > 0) {
@@ -39,22 +57,4 @@ cp.execSync(
     "ios-configure-glog.sh"
   ),
   { stdio: "inherit" }
-);
-//Now that's done, let's go get the websocket
-const wspath = Path.join(
-  cwd,
-  "node_modules",
-  "react-native",
-  "Libraries",
-  "Websocket"
-);
-const g = Path.join(
-  process.env["HOME"],
-  "Library",
-  "Developer",
-  "Xcode",
-  "DerivedData",
-  Path.basename(cwd) + "*",
-  "**",
-  "libfishhook.a"
 );
