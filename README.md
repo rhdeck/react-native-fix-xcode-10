@@ -2,6 +2,10 @@
 
 Fixes issues with compiling React Native 0.55.4 apps on XCode 10
 
+## Update
+
+Xcode 10 release and RN 0.57.0 seem to obviate the need for this package. Here's hoping everyone gets a better build experience! 
+
 # Usage
 
 ```
@@ -20,3 +24,4 @@ react-native fix-xcode
 You only need to do this when first spinning up the project, or if yarn decides to "reset" your node_modules which it often does after another add command.
 
 Here's hoping this is only necessary for a few days.
+
