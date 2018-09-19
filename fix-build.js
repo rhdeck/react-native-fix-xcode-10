@@ -47,11 +47,15 @@ const g = Path.join(
   "**",
   "libfishhook.a"
 );
+
+const g2 = Path.join(process.cwd(), "ios", "build", "**", "libfishhook.a");
 //Now that's done, let's go get the websocket
 const results = glob.sync(g);
-
+const backupResults = glob.sync(g2);
 if (results.length > 0) {
   fs.copyFileSync(results[0], Path.join(wspath, "libfishhook.a"));
+} else if (backupResults.length > 0) {
+  fs.copyFileSync(backupResults[0], Path.join(wspath, "libfishhook.a"));
 } else {
   console.log(
     "You probably have to build your project again before this will work. \nMissing fishhook file in deriveddata"
