@@ -48,7 +48,7 @@ const g = Path.join(
   "libfishhook.a"
 );
 
-const g2 = Path.join(process.cwd(), "ios", "build", "**", "libfishhook.a");
+const g2 = Path.join(cwd, "ios", "build", "**", "libfishhook.a");
 //Now that's done, let's go get the websocket
 const results = glob.sync(g);
 const backupResults = glob.sync(g2);
